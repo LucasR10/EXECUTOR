@@ -27,19 +27,30 @@ public class Main {
 			System.err.println(" Telefone : " + tel);
 		}
 		
-		 int row = 0 ;
 		 
 		 for (Coluna c : telefones) {
 			 
 			String removerPipe = c.getTelefone().replace("|", ";");
+			
 			String novo [] =  removerPipe.split(";");
+					
+			for (int i = 0 ; novo.length > i; i++) {
+				
+				
+				int length = 3;
+				String tel ;
+				if( novo[i].contains("(")) {
+				   length = 5;
+				   tel = novo[i].substring(3);
+				 }
+				
+				 String dd = novo[i].trim().substring(0, length );
+				 tel = novo[i].substring(3, 10);
+				
+				 System.out.println("Tel - " + tel + " dd "+ dd);
+				
+			}
 			
-			String tel = novo[row];
-			String dd = novo[row];
-		    
-			 row++;
-			
-			 System.out.println("Tel - " + tel + " dd "+ dd);
 			 
 			
 		}
